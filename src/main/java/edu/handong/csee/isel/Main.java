@@ -52,7 +52,7 @@ public class Main {
 			for (XSLFSlide slide : slides) {
 				List<XSLFShape> txtshlst = slide.getShapes();
 				if (txtshlst.size() > 1)
-					System.out.println("Many Text box Slide " + slideCount + 1 + "st in " + file.getAbsolutePath());
+					System.out.println("Warning: Many Text box Slide " + slideCount + 1 + "st in " + file.getAbsolutePath());
 				StringBuffer sb = new StringBuffer();
 				for (XSLFShape sh : txtshlst) {
 					XSLFTextShape txtsh = (XSLFTextShape) sh;
