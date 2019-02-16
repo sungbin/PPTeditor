@@ -20,6 +20,7 @@ import org.apache.xmlbeans.XmlException;
 public class Main {
 	static String path = "/Users/imseongbin/Desktop/ppt/in/";
 	static String outPath = "/Users/imseongbin/Desktop/ppt/out/";
+	static String samplePath = "/Users/imseongbin/Desktop/ppt/sample.pptx";
 	static XMLSlideShow samplePPT;// = new XMLSlideShow(new FileInputStream(new
 									// File("/Users/imseongbin/Desktop/ppt/sample.pptx")));
 
@@ -86,6 +87,6 @@ public class Main {
 	}
 
 	private static void init() throws FileNotFoundException, IOException {
-		samplePPT = new XMLSlideShow(new FileInputStream(new File("/Users/imseongbin/Desktop/ppt/sample.pptx")));
+		samplePPT = new XMLSlideShow(new FileInputStream(new File(samplePath)));
 	}
 }
