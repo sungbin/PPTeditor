@@ -70,8 +70,6 @@ public class Main {
 					newSlide = newPPT.createSlide().importContent(getThreeLineSlide());
 				}
 				XSLFTextShape newtxtsh = (XSLFTextShape) newSlide.getShapes().get(0);
-//				XSLFTextShape my = (XSLFTextShape) getThreeLineSlide().getShapes().get(0);
-//				System.out.println(my.setText("").getCharacterSpacing());
 				XSLFTextRun run = newtxtsh.setText(lines[0]);
 				run.setBold(true);
 				run.setFontSize(48.0);
