@@ -40,7 +40,7 @@ public class Main {
 			String name = file.getName();
 			if (!name.contains("pptx"))
 				continue;
-			System.out.println(name);
+//			System.out.println(name);
 			FileInputStream in = new FileInputStream(file);
 			XMLSlideShow ppt = new XMLSlideShow(in);
 			File outFile = new File(outPath + name);
@@ -52,7 +52,7 @@ public class Main {
 			for (XSLFSlide slide : slides) {
 				List<XSLFShape> txtshlst = slide.getShapes();
 				if (txtshlst.size() > 1)
-					System.out.println("Warning: Many Text box Slide " + slideCount + 1 + "st in " + file.getAbsolutePath());
+					System.out.println("Warning: Many Text box Slide " + (slideCount + 1) + "st in " + file.getAbsolutePath());
 				StringBuffer sb = new StringBuffer();
 				for (XSLFShape sh : txtshlst) {
 					XSLFTextShape txtsh = (XSLFTextShape) sh;
@@ -70,15 +70,22 @@ public class Main {
 					newSlide = newPPT.createSlide().importContent(getThreeLineSlide());
 				}
 				XSLFTextShape newtxtsh = (XSLFTextShape) newSlide.getShapes().get(0);
+//				XSLFTextShape my = (XSLFTextShape) getThreeLineSlide().getShapes().get(0);
+//				System.out.println(my.setText("").getCharacterSpacing());
 				XSLFTextRun run = newtxtsh.setText(lines[0]);
 				run.setBold(true);
-				run.setFontSize(44.0);
+				run.setFontSize(48.0);
+				run.setFontFamily("HY엽서M");
+				run.setCharacterSpacing(-3.0);
 				for (int i = 1; i < lines.length; i++) {
-					TextParagraph para = newtxtsh.addNewTextParagraph();
-					XSLFTextRun newrun = newtxtsh.appendText(lines[i], false);
+//					TextParagraph para = newtxtsh.addNewTextParagraph();
+					XSLFTextRun newrun = newtxtsh.appendText("\n"+lines[i], false);
+//					para.setBulletStyle("HY엽서M");
+//					para.setTextAlign(TextAlign.CENTER);
 					newrun.setBold(true);
-					newrun.setFontSize(44.0);
-					para.setTextAlign(TextAlign.CENTER);
+					newrun.setFontSize(48.0);
+					newrun.setCharacterSpacing(-3.0);
+					newrun.setFontFamily("HY엽서M");
 				}
 
 			}
